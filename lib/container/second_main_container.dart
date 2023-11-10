@@ -35,7 +35,6 @@ class SecondMainContainer extends StatelessWidget{
           ),
           SizedBox(height: 10.0,),
           Divider(),
-          SizedBox(height: 10.0,),
           LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) => GridView.count(
                 crossAxisSpacing: 5,
@@ -56,9 +55,8 @@ class SecondMainContainer extends StatelessWidget{
                 ],
               ),
           ),
-          SizedBox(height: 20.0),
+          SizedBox(height: 30.0),
           Divider(height: 10.0, indent: 80.0, endIndent: 80.0,),
-          SizedBox(height: 20.0),
           LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) => GridView.count(
                 crossAxisSpacing: 5,
@@ -76,9 +74,8 @@ class SecondMainContainer extends StatelessWidget{
                 ],
               ),
           ),
-          SizedBox(height: 20.0),
+          SizedBox(height: 30.0),
           Divider(height: 10.0, indent: 80.0, endIndent: 80.0,),
-          SizedBox(height: 20.0),
           LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) => GridView.count(
                 crossAxisSpacing: 5,
@@ -97,9 +94,8 @@ class SecondMainContainer extends StatelessWidget{
                 ],
               ),
           ),
-          SizedBox(height: 20.0),
-          Divider(height: 10.0, indent: 80.0, endIndent: 80.0,),
-          SizedBox(height: 20.0,),
+          SizedBox(height: 30.0),
+          Divider(height: 10.0, indent: 80.0, endIndent: 80.0,)
         ],
       ),
     );
