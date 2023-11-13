@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:warungmakan/main_screen.dart';
+import 'package:warungmakan/screen/detail_screen_web.dart';
+import 'package:warungmakan/screen/main_screen.dart';
+import 'package:warungmakan/screen/detail_screen_mobile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Poppins', colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(background: Color(0xFFFFF9F7)),
       ),
-      home: const MainScreen(),
+      home: MainScreen(),
     );
   }
 }

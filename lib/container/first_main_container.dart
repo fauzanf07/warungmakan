@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class FirstMainContainer extends StatelessWidget {
+  final bool showName;
+  final bool isWidthEnough;
+  final double widthInput;
+
   const FirstMainContainer({
-    super.key
+    super.key, this.showName = false, this.isWidthEnough = false, this.widthInput = 230.0,
   });
 
   @override
@@ -21,53 +25,77 @@ class FirstMainContainer extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: < Widget > [
-                  const Icon(
-                      Icons.food_bank,
-                      color: Colors.white,
-                      size: 40.0,
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.food_bank,
+                          color: Colors.white,
+                          size: 40.0,
+                        ),
+                        showName ? const Padding(
+                          padding: EdgeInsets.only(left: 10, top: 5),
+                          child: Text(
+                            'Warung Makan Sinar Jaya',
+                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),
+                          ),
+                        ) : Text(''),
+                      ]
                     ),
-                    Container(
-                      width: 230,
-                      height: 30,
-                      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                    SizedBox(
+                      width: widthInput,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10.0),
+                        margin: EdgeInsets.only(top: 2.0),
                         decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                            color: Colors.white
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          color: Colors.white,
+                        ),
+                        child: const TextField(
+                          decoration: InputDecoration(
+                            icon: Icon(
+                              Icons.fastfood,
+                              color: Colors.black,
+                              size: 15.0,
+                            ),
+                            hintText: 'Mau makan apa hari ini?',
+                            filled: true,
+                            fillColor: Colors.white,
+                            isDense: true,
+                            contentPadding: EdgeInsets.symmetric(vertical: 8.0),
+                            border: InputBorder.none,
                           ),
-                          child: const Row(
-                            children: < Widget > [
-                              Icon(
-                                Icons.fastfood,
-                                color: Colors.black,
-                                size: 15.0,
-                              ),
-                              SizedBox(width: 10.0),
-                              Text('Mau makan apa hari ini?', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
-                            ],
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.black,
                           ),
+                        ),
+                      ) 
                     ),
+                    
                 ],
               ),
               SizedBox(height: 12.0),
-              Center(
-                child: Row(
-                  children: < Widget > [
-                    Center(
-                      child: Container(
-                        child: const Text(
-                          'Selamat Datang,\nFauzan Fiqriansyah!',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Color(0xFFFFE34F),
-                            fontSize: 20.6,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+              Align(
+                alignment: isWidthEnough? Alignment.center : Alignment.centerLeft,
+                child: isWidthEnough ? const Text(
+                  'Selamat Datang, Fauzan Fiqriansyah!',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    color: Color(0xFFFFE34F),
+                    fontSize: 20.6,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ) : const Text(
+                  'Selamat Datang, \nFauzan Fiqriansyah!',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    color: Color(0xFFFFE34F),
+                    fontSize: 20.6,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
+              
               SizedBox(height: 12.0),
               Row(
                 children: < Widget > [
@@ -161,7 +189,7 @@ class FirstMainContainer extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30.0),
-                Center(
+                const Center(
                   child: Divider(
                     color: Color(0xFF0048E8),
                     thickness: 4.0,
