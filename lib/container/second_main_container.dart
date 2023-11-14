@@ -8,8 +8,10 @@ class SecondMainContainer extends StatelessWidget{
   final int countGrid;
   final double heightCard;
   final double heightSideBox;
+  final double fontSizeCard;
+  final double fontSizeLabel;
 
-  const SecondMainContainer({super.key, this.countGrid = 3, this.heightCard = 120.0, this.heightSideBox = 30.0});
+  const SecondMainContainer({super.key, this.countGrid = 3, this.heightCard = 120.0, this.heightSideBox = 30.0, this.fontSizeCard = 10.0, this.fontSizeLabel = 8.0});
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +61,7 @@ class SecondMainContainer extends StatelessWidget{
             ),
           ),
           SizedBox(height: heightSideBox),
-          GridViewCard(count: countGrid, menu: menu_utama, scrollDirection: Axis.vertical, aspectRatio: 0.8, ),
+          GridViewCard(count: countGrid, menu: menu_utama, scrollDirection: Axis.vertical, aspectRatio: 0.8, fontSizeCard: fontSizeCard, fontSizeLabel: fontSizeLabel,),
           SizedBox(height: heightSideBox),
           Divider(height: heightSideBox, indent: 60.0, endIndent: 60.0,),
           
@@ -78,7 +80,7 @@ class SecondMainContainer extends StatelessWidget{
             ),
           ),
           SizedBox(height: heightSideBox),
-          GridViewCard(count: countGrid, menu: sambal, scrollDirection: Axis.vertical, aspectRatio: 0.8,),
+          GridViewCard(count: countGrid, menu: sambal, scrollDirection: Axis.vertical, aspectRatio: 0.8,fontSizeCard: fontSizeCard, fontSizeLabel: fontSizeLabel,),
           SizedBox(height: heightSideBox),
           Divider(height: heightSideBox, indent: 60.0, endIndent: 60.0,),
           
@@ -97,7 +99,7 @@ class SecondMainContainer extends StatelessWidget{
             ),
           ),
           SizedBox(height: heightSideBox),
-          GridViewCard(count: countGrid, menu: gorengan, scrollDirection: Axis.vertical, aspectRatio: 0.8,),
+          GridViewCard(count: countGrid, menu: gorengan, scrollDirection: Axis.vertical, aspectRatio: 0.8, fontSizeCard: fontSizeCard, fontSizeLabel: fontSizeLabel,),
           SizedBox(height: heightSideBox),
           Divider(height: heightSideBox, indent: 60.0, endIndent: 60.0,),
           
@@ -123,6 +125,8 @@ class SecondMainContainer extends StatelessWidget{
               menu: minuman, 
               scrollDirection: Axis.horizontal, 
               aspectRatio: 1.32,
+              fontSizeCard: fontSizeCard, 
+              fontSizeLabel: fontSizeLabel,
             )
           ),
           SizedBox(height: 15.0),
@@ -162,8 +166,10 @@ class TabContainer extends StatelessWidget{
 
 class MenuCard extends StatelessWidget{
   final Menu menu;
+  final double fontSizeCard;
+  final double fontSizeLabel;
 
-  const MenuCard({super.key, required this.menu});
+  const MenuCard({super.key, required this.menu, required this.fontSizeCard, required this.fontSizeLabel});
 
   @override
   Widget build(BuildContext context) {
@@ -208,9 +214,9 @@ class MenuCard extends StatelessWidget{
                             borderRadius: BorderRadius.all(Radius.circular(10.0)),
                             color: Color(0xFFFFE34F),
                           ),
-                          child: const Text(
+                          child: Text(
                             'Gratis',
-                            style: TextStyle(fontSize: 8.0, color: Color(0xff152039)),
+                            style: TextStyle(fontSize: fontSizeLabel, color: Color(0xff152039)),
                           ),
                         ),
                       ) : Align(),
@@ -223,9 +229,9 @@ class MenuCard extends StatelessWidget{
                             borderRadius: BorderRadius.all(Radius.circular(10.0)),
                             color: Color.fromARGB(255, 255, 79, 79),
                           ),
-                          child: const Text(
+                          child: Text(
                             'Habis',
-                            style: TextStyle(fontSize: 8.0, color: Color.fromARGB(255, 255, 255, 255)),
+                            style: TextStyle(fontSize: fontSizeLabel, color: Color.fromARGB(255, 255, 255, 255)),
                           ),
                         ),
                       ) : Align(),
@@ -239,7 +245,7 @@ class MenuCard extends StatelessWidget{
                   child: Wrap(
                     children: <Widget>[
                       Center(
-                        child: Text(this.menu.nama, textAlign: TextAlign.center, style: TextStyle(color: Color(0xff152039), fontFamily: 'Poppins', fontWeight: FontWeight.w500, fontSize: 10,),),
+                        child: Text(this.menu.nama, textAlign: TextAlign.center, style: TextStyle(color: Color(0xff152039), fontFamily: 'Poppins', fontWeight: FontWeight.w500, fontSize: fontSizeCard,),),
                       ),
                     ],
                   ), 
@@ -258,9 +264,11 @@ class GridViewCard extends StatelessWidget{
   List<Menu> menu;
   Axis scrollDirection;
   double aspectRatio;
+  double fontSizeCard;
+  double fontSizeLabel;
 
 
-  GridViewCard({super.key, required this.count, required this.menu, required this.scrollDirection, required this.aspectRatio});
+  GridViewCard({super.key, required this.count, required this.menu, required this.scrollDirection, required this.aspectRatio, required this.fontSizeCard, required this.fontSizeLabel});
   
   @override
   Widget build(BuildContext context) {
@@ -274,7 +282,7 @@ class GridViewCard extends StatelessWidget{
         childAspectRatio: aspectRatio,
         shrinkWrap: true,
         children: menu.map((menus) {
-          return MenuCard(menu: menus);
+          return MenuCard(menu: menus, fontSizeCard: fontSizeCard, fontSizeLabel: fontSizeLabel,);
         }).toList(),
       ),
     );

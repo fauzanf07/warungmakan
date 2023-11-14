@@ -14,8 +14,8 @@ class MainScreen extends StatelessWidget{
           return const SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                FirstMainContainer(showName: true, isWidthEnough: true, widthInput: 300.0 ),
-                SecondMainContainer(countGrid: 5, heightCard: 250,),
+                FirstMainContainer(showName: true, isWidthEnough: true, widthInput: 300.0, ),
+                SecondMainContainer(countGrid: 5, heightCard: 250,fontSizeCard: 15.0, fontSizeLabel: 12.0),
                 ThirdMainContainer(),
               ],
             ),
@@ -26,7 +26,7 @@ class MainScreen extends StatelessWidget{
             child: Column(
               children: <Widget>[
                 FirstMainContainer(showName: true,),
-                SecondMainContainer(countGrid: 4, heightCard: 170, ),
+                SecondMainContainer(countGrid: 4, heightCard: 170, fontSizeCard: 15.0, fontSizeLabel: 14.0, ),
                 ThirdMainContainer(),
               ],
             ),
